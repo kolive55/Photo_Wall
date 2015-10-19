@@ -1,17 +1,21 @@
-<form>
-  <div>
+<form method="post" action="/songs">
+  <div class="form-group">
+    <h1 class="cover-heading">Enter A New Song</h1>
     <label>Author:</label>
-    <input type="text" name="author">
+    <input type="text" class="form-control" name="author">
   </div>
-  <div>
-    <label>Song_title:</label>
-    <input type="text" name="title">
+  <div class="form-group">
+    <label>Song Title:</label>
+    <input type="text" class="form-control" name="song_title">
   </div>
-  <div>
+  <div class="form-group">
     <label>URL:</label>
-    <input type="url" name="url">
+    <input type="url" class="form-control" name="url">
   </div>
+
   <div>
-    <input type="submit" value="Submit">
+    <p class="lead">
+    <input class="btn btn-lg btn-default" type="submit" value="Submit">
+  </p>
   </div>
 </form>
