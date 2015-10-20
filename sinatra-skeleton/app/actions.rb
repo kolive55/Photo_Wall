@@ -8,9 +8,30 @@ get '/songs' do
   erb :'/songs/index'
 end
 
+get '/users' do
+  @users = User.all
+end
+
 get '/songs/new' do
   @song = Song.new
   erb :'/songs/new'
+end
+
+get '/users/sign_up' do
+  @user = User.new
+  erb :'/users/sign_up'
+end
+
+post '/users' do
+  @user = User.new(
+    user_name: params[:user_name],
+    password: params[:password]
+    )
+    if @user.save
+      redirect '/songs'
+    else
+      erb :'users/sign_up'
+    end
 end
 
 post '/songs' do
