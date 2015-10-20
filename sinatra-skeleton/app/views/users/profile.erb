@@ -1,0 +1,18 @@
+<% if logged_in? %>
+<h1><%= @user.user_name %></h1>
+
+<p class="lead"><% @user.songs.each do |song| %>
+    <h3><a href="/songs/<%= song.id %>"><%= song.song_title %></a> <small>(by: <%= song.author %>)</small></h3>
+    <p>
+    <a href = "<%= song.url %>">Watch Video</a>
+    </p>
+    <p>
+      Posted on: <%= song.created_at %>
+    </p>
+<% end %></p>
+
+<hr/>
+<a href="/songs">Back to Song List</a>
+
+
+<% end %>
