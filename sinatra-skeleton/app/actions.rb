@@ -22,6 +22,11 @@ get '/songs' do
   erb :'/songs/index'
 end
 
+# get '/songs' do
+#   @songs = Song.order 'created_at DESC'
+#   erb :'songs/index'
+# end
+
 get '/songs/new' do
   @song = Song.new
   erb :'/songs/new'
@@ -89,4 +94,14 @@ end
 get '/logout' do
   session[:user_id] = nil
   redirect '/users/login'
+end
+
+post '/songs/:song_id/likes' do
+  if logged_in?
+  like = Like.new(
+  song_id: params[:song_id],
+  user_id: current_user.id)
+  binding.pry
+  redirect '/songs'
+  end
 end
