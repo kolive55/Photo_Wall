@@ -36,6 +36,9 @@
                 <p>
                   Posted on: <%= song.created_at %>
                 </p>
+                <p>
+                  Likes: <%= song.likes.count %>
+                </p>
                 <form method='POST' action='/songs/<%= song.id %>/likes'>
                 <input class="btn btn-sm btn-default" type ="submit" value ="Like!" >
               </form>

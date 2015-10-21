@@ -18,7 +18,8 @@ get '/' do
 end
 
 get '/songs' do
-  @songs = Song.all.limit(5)
+  @songs = Song.all.limit(4)
+  p @songs
   erb :'/songs/index'
 end
 
@@ -98,10 +99,9 @@ end
 
 post '/songs/:song_id/likes' do
   if logged_in?
-  like = Like.new(
+  like = Like.create(
   song_id: params[:song_id],
   user_id: current_user.id)
-  binding.pry
   redirect '/songs'
   end
 end
